@@ -37,7 +37,7 @@ The binary is generated under the `bin/` directory.
 You can also use the Docker image.
 
 ```bash
-$ docker run -p 8080:8080 -p 50051:50051 openfresh/plasma
+$ docker run -p 8080:8080 -p 50051:50051 -p 9999:9999 openfresh/plasma
 ```
 
 ### Using docker-compose
@@ -222,11 +222,11 @@ If there is a problem it returns 500, and if there is no problem it returns 200.
 
 ## Metrics
 
-### GET /metrics
+### GET /go
 
-You can get metrics from this endpoint.
+You can get golang metrics from this endpoint.
 
-The following metrics can be taken.
+The following golang metrics can be taken.
 
 | name                | type      | desc                                                                  |
 |---------------------|-----------|-----------------------------------------------------------------------|
@@ -263,7 +263,8 @@ The following metrics can be taken.
 | name                                            | type          | desc                                                                                  | default           | note                                                                               |
 |-------------------------------------------------|---------------|---------------------------------------------------------------------------------------|-------------------|------------------------------------------------------------------------------------|
 | PLASMA_PORT                                     | string        | http(https) port number                                                               | 8080              |                                                                                    |
-| PLASMA_GRPC_PORT                                | string        | gRPC port number                                                                      | 50051              |                                                                                    |
+| PLASMA_GRPC_PORT                                | string        | gRPC port number                                                                      | 50051             |                                                                                    |
+| PLASMA_METRICS_PORT                             | string        | metrics port number                                                                   | 9999              |                                                                                    |
 | PLASMA_DEBUG                                    | bool          | debug mode                                                                            | false             |                                                                                    |
 | PLASMA_ORIGIN                                   | string        | set to Access-Controll-Allow-Origin                                                   |                   |                                                                                    |
 | PLASMA_SSE_RETRY                                | int           | reconnect to the source milliseconds after each connection is closed                  | 2000              |                                                                                    |
